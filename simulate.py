@@ -1,17 +1,19 @@
+"""
 import pybullet as p
 import time
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy
 import random
+import constants as c
 
-amplitude_FrontLeg = numpy.pi/4
-frequency_FrontLeg = 5
-phaseOffset_FrontLeg = 0
+amplitude_FrontLeg = c.amplitude_FrontLeg
+frequency_FrontLeg = c.frequency_FrontLeg
+phaseOffset_FrontLeg = c.phaseOffset_FrontLeg
 
-amplitude_BackLeg = numpy.pi/4
-frequency_BackLeg = 5
-phaseOffset_BackLeg = numpy.pi/4
+amplitude_BackLeg = c.amplitude_BackLeg
+frequency_BackLeg = c.frequency_BackLeg
+phaseOffset_BackLeg = c.phaseOffset_BackLeg
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -54,3 +56,9 @@ numpy.save("data/backLegSensorValues", backLegSensorValues)
 numpy.save("data/frontLegSensorValues", frontLegSensorValues)
 numpy.save("data/frontLegTargetAngles", targetAngles_FrontLeg)
 numpy.save("data/backLegTargetAngles", targetAngles_BackLeg)
+"""
+from simulation import SIMULATION
+
+simulation = SIMULATION()
+simulation.Run()
+
