@@ -12,3 +12,5 @@ phaseOffset_BackLeg = numpy.pi/4
 amplitude = numpy.pi/4
 frequency = 5
 phaseOffset = 0
+
+numberOfGenerations = 10
