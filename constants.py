@@ -13,4 +13,5 @@ amplitude = numpy.pi/4
 frequency = 5
 phaseOffset = 0
 
-numberOfGenerations = 10
+numberOfGenerations = 100
+populationSize = 2

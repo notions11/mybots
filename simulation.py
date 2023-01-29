@@ -6,7 +6,7 @@ import pyrosim.pyrosim as pyrosim
 import time
 
 class SIMULATION:
-    def __init__(self, directOrGUI):
+    def __init__(self, directOrGUI, simulationID):
         self.directOrGUI = directOrGUI
         if directOrGUI == 'DIRECT':
             self.physicsClient = p.connect(p.DIRECT)
@@ -15,7 +15,7 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -20.8)
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT(simulationID)
         pyrosim.Prepare_To_Simulate(self.robot.robotId)
         self.robot.Prepare_To_Sense()
         self.robot.Prepare_To_Act()

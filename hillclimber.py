@@ -19,7 +19,7 @@ class HILL_CLIMBER:
         self.Print()
         self.Select()
 
-    def Spawn(self):
+    def Spawn(self, newID):
         self.child = copy.deepcopy(self.parent)
 
     def Mutate(self):
