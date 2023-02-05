@@ -13,7 +13,7 @@ class SIMULATION:
         else:
             self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
-        p.setGravity(0, 0, -20.8)
+        p.setGravity(0, 0, -9.8)
         self.world = WORLD()
         self.robot = ROBOT(simulationID)
         pyrosim.Prepare_To_Simulate(self.robot.robotId)

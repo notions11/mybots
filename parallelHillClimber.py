@@ -17,6 +17,20 @@ class PARALLEL_HILL_CLIMBER:
     def Evolve(self):
         self.Evaluate(self.parents)
 
+        """
+        validParents = False
+        while not validParents:
+            self.Evaluate(self.parents)
+            validParents = True
+            for parent in self.parents.keys():
+                if self.parents[parent].fitness > 5:
+                    self.parents[parent] = SOLUTION(self.nextAvailableID)
+                    self.nextAvailableID += 1
+                    validParents = False
+                    break
+        
+        """
+
         for currentGeneration in range(constants.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
@@ -67,6 +81,8 @@ class PARALLEL_HILL_CLIMBER:
             if self.parents[parent].fitness < fittest_score:
                 fittest_parent = self.parents[parent]
                 fittest_score = self.parents[parent].fitness
+
+        print(fittest_parent.weights)
         fittest_parent.Start_Simulation('GUI')
 
     def Evaluate(self, solutions):
