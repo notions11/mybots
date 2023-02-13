@@ -13,10 +13,10 @@ amplitude = 2*numpy.pi
 frequency = 10
 phaseOffset = 0
 
-numberOfGenerations = 20
-populationSize = 20
+numberOfGenerations = 0
+populationSize = 1
 
 numSensorNeurons = 13
 numMotorNeurons = 12
 
-motorJointRange = 1.0
+motorJointRange = 0.2

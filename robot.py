@@ -14,7 +14,7 @@ class ROBOT:
         self.robotId = p.loadURDF("body.urdf")
         self.nn = NEURAL_NETWORK("brain" + str(simulationID) + ".nndf")
         pyrosim.Prepare_To_Simulate(self.robotId)
-        os.system("del brain" + str(simulationID) + ".nndf")
+        #os.system("del brain" + str(simulationID) + ".nndf")
         self.simulationID = simulationID
 
     def Prepare_To_Sense(self):
