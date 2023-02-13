@@ -1,3 +1,6 @@
+## Credit
+Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
+
 ## Descending a staircase with holes
 The goal of my design-your-own-creature was to replicate the swinging of humans/monkeys from bar to bar. Originally, after removing the floor, I had positioned the bars parallel, on the same z-axis:
 
