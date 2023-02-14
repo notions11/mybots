@@ -4,7 +4,7 @@ Most if not all source code is taken from the ludobots subreddit: https://www.re
 ## Descending a staircase with holes
 The goal of my design-your-own-creature was to replicate the swinging of humans/monkeys from bar to bar. Originally, after removing the floor, I had positioned the bars parallel, on the same z-axis:
 
-![enter image description here](https://i.imgur.com/LqGLu73.gif)
+![enter image description here]([https://i.imgur.com/LqGLu73.gif](https://imgur.com/KPcUH7I))
 
 But found that the robot had trouble fighting against gravity. To combat this, I made it so the bars slightly descend with every iteration so that the robot still has opportunities to swing/grab but no longer has to try so hard to fight gravity. The task of the robot was to get as far to the left without falling. The robot learned two different approaches to this problem which I showcase in my final video in addition to the evolution process: https://youtu.be/6TepzPRrK-8
 
