@@ -12,7 +12,7 @@ For this assignment, I created randomly generated creatures with a random # of b
 ![image](https://i.imgur.com/j5GcmSO.png)
 ![image](https://i.imgur.com/WVQ18Xn.png)
 
-![image](https://i.imgur.com/K3gfpq9.png)
+![image](https://i.imgur.com/woX5Uhx.png)
 
 
 ## YouTube
