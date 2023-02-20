@@ -9,7 +9,7 @@ amplitude_BackLeg = numpy.pi/4
 frequency_BackLeg = 5
 phaseOffset_BackLeg = numpy.pi/4
 """
-amplitude = 2*numpy.pi
+amplitude = numpy.pi/2
 frequency = 10
 phaseOffset = 0
 
@@ -19,4 +19,4 @@ populationSize = 1
 numSensorNeurons = 13
 numMotorNeurons = 12
 
-motorJointRange = 1.0
+motorJointRange = .75
