@@ -11,7 +11,7 @@ import os
 class ROBOT:
     def __init__(self, simulationID):
         self.motors = dict()
-        self.robotId = p.loadURDF("body.urdf")
+        self.robotId = p.loadURDF("body" + str(simulationID) + ".urdf")
         self.nn = NEURAL_NETWORK("brain" + str(simulationID) + ".nndf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         #os.system("del brain" + str(simulationID) + ".nndf")
@@ -46,15 +46,11 @@ class ROBOT:
         #self.nn.Print()
 
     def Get_Fitness(self):
-        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
-        basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
-        zPosition = basePosition[2]
+        stateOfLinkZero = p.getLinkState(self.robotId, 0)
+        positionOfLinkZero = stateOfLinkZero[0]
+        xCoordinateOfLinkZero = positionOfLinkZero[0]
         f = open("tmp" + str(self.simulationID) + ".txt", "w")
-        if zPosition < -10:
-            f.write(str(-zPosition))
-        else:
-            f.write(str(xPosition))
+        f.write(str(xCoordinateOfLinkZero))
         f.close()
         os.rename("tmp" + str(self.simulationID) + ".txt", "fitness" + str(self.simulationID) + ".txt")
         exit()

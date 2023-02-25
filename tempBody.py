@@ -13,9 +13,6 @@ class SOLUTION:
     def __init__(self, myID):
         self.weights = (numpy.random.rand(constants.numSensorNeurons, constants.numMotorNeurons)*2)-1
         self.myID = myID
-        random.seed(self.myID)
-        numpy.random.seed(self.myID)
-        self.created = False
 
     def Evaluate(self, directOrGUI):
         self.Create_World()
@@ -33,15 +30,14 @@ class SOLUTION:
     def Start_Simulation(self, directOrGUI):
         self.Create_World()
         self.Create_Body()
+        self.Create_Brain()
         while not os.path.exists("body" + str(self.myID) + ".urdf"):
             time.sleep(0.05)
-        self.Create_Brain()
         os.system("start /B python3 simulate.py " + directOrGUI + " " + str(self.myID))
 
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
-            time.sleep(0.05)
-        time.sleep(0.05)
+            time.sleep(0.02)
         fitnessFile = open("fitness" + str(self.myID) + ".txt", "r")
         self.fitness = float(fitnessFile.read())
         fitnessFile.close()
@@ -65,7 +61,7 @@ class SOLUTION:
             return random.random() > 0.5
 
         def randomValueWithSideLength(size):
-            return ((random.random()*2)-1) * size/2
+            return ((random.random() * 2) - 1) * size / 2
 
         def getJointPosition(parent, goal, size):
             x = size[0]
@@ -76,30 +72,30 @@ class SOLUTION:
             random_z = randomValueWithSideLength(z)
             result = [random_x, random_y, random_z]
             if parent == 0:
-                result[0] -= x/2
+                result[0] -= x / 2
             elif parent == 1:
-                result[0] += x/2
+                result[0] += x / 2
             elif parent == 2:
-                result[1] -= y/2
+                result[1] -= y / 2
             elif parent == 3:
-                result[1] += y/2
+                result[1] += y / 2
             elif parent == 4:
-                result[2] -= z/2
+                result[2] -= z / 2
             elif parent == 5:
-                result[2] += z/2
+                result[2] += z / 2
 
             if goal == 0:
-                result[0] += x/2 - random_x
+                result[0] += x / 2 - random_x
             elif goal == 1:
-                result[0] += -x/2 - random_x
+                result[0] += -x / 2 - random_x
             elif goal == 2:
-                result[1] += y/2 - random_y
+                result[1] += y / 2 - random_y
             elif goal == 3:
-                result[1] += -y/2 - random_y
+                result[1] += -y / 2 - random_y
             elif goal == 4:
-                result[2] += z/2 - random_z
+                result[2] += z / 2 - random_z
             elif goal == 5:
-                result[2] += -z/2 - random_z
+                result[2] += -z / 2 - random_z
 
             return result
 
@@ -119,7 +115,7 @@ class SOLUTION:
                 position = [0, 0, current_block[2] / 2.0]
             return position
 
-        def getJointPositionForRoot(idx, x , y, z):
+        def getJointPositionForRoot(idx, x, y, z):
             jointPosition = []
             if idx == 0:
                 jointPosition = [x / 2, randomValueWithSideLength(y), randomValueWithSideLength(z) + (self.track_z / 2)]
@@ -138,6 +134,7 @@ class SOLUTION:
                 jointPosition = [randomValueWithSideLength(x), randomValueWithSideLength(y),
                                  (-z / 2) + (self.track_z / 2)]
             return jointPosition
+
         if not self.created:
             self.created = True
             self.numLinks = random.randint(3, 5)
@@ -159,14 +156,14 @@ class SOLUTION:
             self.link_positions = dict()
             self.link_sizes = dict()
 
-            #generate sizes
+            # generate sizes
             for i in range(self.numLinks):
                 rand_x = random.random()
                 rand_y = random.random()
                 rand_z = random.random()
-                area = rand_x*rand_y*rand_z
+                area = rand_x * rand_y * rand_z
                 self.area_dict[(rand_x, rand_y, rand_z)] = area
-                self.side_dict[(rand_x, rand_y, rand_z)] = [None, None, None, None, None, None] #+x -x +y -y +z -z
+                self.side_dict[(rand_x, rand_y, rand_z)] = [None, None, None, None, None, None]  # +x -x +y -y +z -z
                 self.edge_graph[(rand_x, rand_y, rand_z)] = []
             self.sorted_areas = sorted(self.area_dict, key=self.area_dict.get, reverse=True)
             label = 0
@@ -186,7 +183,7 @@ class SOLUTION:
                     larger_blocks.remove(choose_block)
 
             # create connections
-            self.track_z = (len(self.sorted_areas)*3/2)
+            self.track_z = (len(self.sorted_areas) / 2) + 1
             for idx, current_block in enumerate(self.sorted_areas):
                 if idx == 0:
                     self.parent_dict[current_block] = None
@@ -196,15 +193,14 @@ class SOLUTION:
                     chosen_side = random.choice(available_indices)
                     self.side_dict[current_block][chosen_side] = connected_block
                     if chosen_side % 2 == 0:
-                        self.side_dict[connected_block][chosen_side+1] = []
-                        self.parent_dict[connected_block] = chosen_side+1
+                        self.side_dict[connected_block][chosen_side + 1] = []
+                        self.parent_dict[connected_block] = chosen_side + 1
                     else:
-                        self.side_dict[connected_block][chosen_side-1] = []
-                        self.parent_dict[connected_block] = chosen_side-1
+                        self.side_dict[connected_block][chosen_side - 1] = []
+                        self.parent_dict[connected_block] = chosen_side - 1
                     available_indices.remove(chosen_side)
 
-
-            #draw blocks
+            # draw blocks
             for current_block_idx, current_block in enumerate(self.sorted_areas):
                 if current_block in self.parent_dict:
                     parent_direction = self.parent_dict[current_block]
@@ -213,7 +209,8 @@ class SOLUTION:
                 if current_block_idx == 0:
                     sensorCheck = random.random()
                     if sensorCheck > 0.5:
-                        pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]), pos=[0, 0, self.track_z / 2.0],
+                        pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]),
+                                          pos=[0, 0, self.track_z / 2.0],
                                           size=list(current_block),
                                           material_name="Green",
                                           rgba="0 1.0 0 1.0")
@@ -222,7 +219,8 @@ class SOLUTION:
                         self.link_sizes[self.label_dict[current_block]] = list(current_block)
                         self.link_positions[self.label_dict[current_block]] = [0, 0, self.track_z / 2.0]
                     else:
-                        pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]), pos=[0, 0, self.track_z / 2.0],
+                        pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]),
+                                          pos=[0, 0, self.track_z / 2.0],
                                           size=list(current_block))
                         self.link_sensor_check[self.label_dict[current_block]] = False
                         self.link_sizes[self.label_dict[current_block]] = list(current_block)
@@ -253,7 +251,8 @@ class SOLUTION:
                 for idx, connected_block in enumerate(connected_blocks):
                     if connected_block == None or connected_block == []:
                         continue
-                    jointName = "Link" + str(self.label_dict[current_block]) + "_Link" + str(self.label_dict[connected_block])
+                    jointName = "Link" + str(self.label_dict[current_block]) + "_Link" + str(
+                        self.label_dict[connected_block])
                     randomjoint = getJoint()
                     jointPosition = []
                     x = current_block[0]
@@ -270,11 +269,65 @@ class SOLUTION:
                                        position=jointPosition,
                                        jointAxis=randomjoint)
                     self.motors.append(jointName)
-                    self.joint_parent_child[jointName] = {'parent':"Link" + str(self.label_dict[current_block]),
-                                                          'child':"Link" + str(self.label_dict[connected_block])}
+                    self.joint_parent_child[jointName] = {'parent': "Link" + str(self.label_dict[current_block]),
+                                                          'child': "Link" + str(self.label_dict[connected_block])}
                     self.joint_positions[jointName] = jointPosition
                     self.joint_axis[jointName] = randomjoint
             pyrosim.End()
+
+    def Create_Brain(self):
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        ctr = 0
+        self.numMotors = 0
+        self.numSensors = 0
+        for i in self.sensors:
+            pyrosim.Send_Sensor_Neuron(name=ctr, linkName="Link"+str(i))
+            ctr += 1
+            self.numSensors += 1
+
+        for i in self.motors:
+            pyrosim.Send_Motor_Neuron(name=ctr, jointName=i)
+            self.numMotors += 1
+            ctr+=1
+
+        self.weights = (numpy.random.rand(self.numSensors, self.numMotors) * 2) - 1
+
+        for currentRow in range(self.numSensors):
+            for currentColumn in range(self.numMotors):
+                pyrosim.Send_Synapse(sourceNeuronName=currentRow, targetNeuronName=currentColumn+self.numSensors, weight=self.weights[currentRow][currentColumn])
+        pyrosim.End()
+
+
+    def Mutate(self):
+        #possible changes
+        # 0 - change one link to sensor/not sensor
+        # 1 - change size
+        # 2 - move link
+        # 3 - add or remove a link
+        # 4 - change random weight
+
+        evolve_option = 5
+        if evolve_option == 0:
+            os.system("del body" + str(self.myID)+ ".urdf")
+            self.Create_Body(0)
+        elif evolve_option == 1:
+            os.system("del body" + str(self.myID) + ".urdf")
+            self.Create_Body(1)
+        elif evolve_option == 2:
+            os.system("del body" + str(self.myID) + ".urdf")
+            self.Create_Body(2)
+        elif evolve_option == 3:
+            os.system("del body" + str(self.myID) + ".urdf")
+            self.Create_Body(3)
+        else:
+            if self.numSensors == 0:
+                return
+            randomRow = random.randint(0, self.numSensors-1)
+            randomColumn = random.randint(0, self.numMotors-1)
+            self.weights[randomRow][randomColumn] = random.random()*2 - 1
+
+    def Set_ID(self, newID):
+        self.myID = newID
 
     def Create_Mutated_Body(self, option=None):
         def getJoint(ignoreJoint=None):
@@ -345,7 +398,7 @@ class SOLUTION:
                 print(current_block)
             return position
 
-        def getJointPositionForRoot(idx, x , y, z):
+        def getJointPositionForRoot(idx, x, y, z):
             jointPosition = []
             if idx == 0:
                 jointPosition = [x / 2, randomValueWithSideLength(y), randomValueWithSideLength(z) + (self.track_z / 2)]
@@ -414,15 +467,10 @@ class SOLUTION:
             rand_y = random.random()
             rand_z = random.random()
             area = rand_x * rand_y * rand_z
-            link_to_change = random.choice(self.sorted_areas)
+            link_to_change = random.choice(list(self.sorted_areas))
             new_link = (rand_x, rand_y, rand_z)
             self.sorted_areas.remove(link_to_change)
             self.sorted_areas.append(new_link)
-            self.area_dict[new_link] = area
-            self.area_dict.pop(link_to_change)
-            self.side_dict.pop(link_to_change)
-            self.edge_graph.pop(link_to_change)
-
             for current_block in self.sorted_areas:
                 self.side_dict[current_block] = [None, None, None, None, None, None]  # +x -x +y -y +z -z
                 self.edge_graph[current_block] = []
@@ -465,8 +513,7 @@ class SOLUTION:
                 else:
                     parent_direction = None
                 if current_block_idx == 0:
-                    sensorCheck = random.random()
-                    if sensorCheck > 0.5:
+                    if self.link_sensor_check[self.label_dict[current_block]]:
                         pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]),
                                           pos=[0, 0, self.track_z / 2.0],
                                           size=list(current_block),
@@ -488,7 +535,7 @@ class SOLUTION:
                     sensorCheck = random.random()
                     position = returnDirection(parent_direction, current_block)
 
-                    if sensorCheck > 0.5:
+                    if self.link_sensor_check[self.label_dict[current_block]]:
                         pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]), pos=position,
                                           size=list(current_block),
                                           material_name="Green",
@@ -500,7 +547,6 @@ class SOLUTION:
                     else:
                         pyrosim.Send_Cube(name="Link" + str(self.label_dict[current_block]), pos=position,
                                           size=list(current_block))
-                        self.link_sensor_check[self.label_dict[current_block]] = False
                         self.link_sizes[self.label_dict[current_block]] = list(current_block)
                         self.link_positions[self.label_dict[current_block]] = position
 
@@ -823,71 +869,4 @@ class SOLUTION:
                                    position=self.joint_positions[current_joint],
                                    jointAxis=self.joint_axis[current_joint])
             pyrosim.End()
-    def Create_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-        ctr = 0
-        self.numMotors = 0
-        self.numSensors = 0
-        for i in self.sensors:
-            pyrosim.Send_Sensor_Neuron(name=ctr, linkName="Link"+str(i))
-            ctr += 1
-            self.numSensors += 1
 
-        for i in self.motors:
-            pyrosim.Send_Motor_Neuron(name=ctr, jointName=i)
-            self.numMotors += 1
-            ctr+=1
-
-        self.weights = (numpy.random.rand(self.numSensors, self.numMotors) * 2) - 1
-
-        for currentRow in range(self.numSensors):
-            for currentColumn in range(self.numMotors):
-                pyrosim.Send_Synapse(sourceNeuronName=currentRow, targetNeuronName=currentColumn+self.numSensors, weight=self.weights[currentRow][currentColumn])
-        pyrosim.End()
-
-    def Mutate(self):
-        #possible changes
-        # 0 - change one link to sensor/not sensor
-        # 1 - change size also changes the link
-        # 2 - move links
-        # 3 - add or remove a link
-        # 4 - change random weight
-
-        evolve_option = random.randint(0, 4)
-        print(evolve_option)
-        if evolve_option == 0:
-            os.system("del body" + str(self.myID)+ ".urdf")
-            self.Create_Mutated_Body(0)
-            os.system("del brain" + str(self.myID)+ ".nndf")
-            self.Create_Brain()
-        elif evolve_option == 1:
-            os.system("del body" + str(self.myID) + ".urdf")
-            self.Create_Mutated_Body(1)
-            os.system("del brain" + str(self.myID) + ".nndf")
-            self.Create_Brain()
-        elif evolve_option == 2:
-            os.system("del body" + str(self.myID) + ".urdf")
-            self.Create_Mutated_Body(2)
-            os.system("del brain" + str(self.myID) + ".nndf")
-            self.Create_Brain()
-        elif evolve_option == 3:
-            os.system("del body" + str(self.myID) + ".urdf")
-            self.Create_Mutated_Body(3)
-            os.system("del brain" + str(self.myID) + ".nndf")
-            self.Create_Brain()
-        else:
-            os.system("del body" + str(self.myID) + ".urdf")
-            self.Create_Mutated_Body(4)
-            os.system("del brain" + str(self.myID) + ".nndf")
-            self.Create_Brain()
-            if self.numSensors == 0:
-                return
-            randomRow = random.randint(0, self.numSensors-1)
-            randomColumn = random.randint(0, self.numMotors-1)
-            self.weights[randomRow][randomColumn] = random.random()*2 - 1
-
-    def Set_ID(self, newID):
-        self.myID = newID
-
-    def Get_ID(self):
-        return self.myID
