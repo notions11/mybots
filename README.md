@@ -23,6 +23,7 @@ Just like Assignment 4, the fitness function in this 3d evolution model was for 
 ## Possible Evolutions
 ### Change One Link to Sensor/Not Sensor
 This changes a random link on the robot into a sensor if it already was not a sensor and vice versa.
+
 ![image](https://i.imgur.com/ytscQg1.png)
 
 ### Change Size of Link
