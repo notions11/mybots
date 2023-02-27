@@ -28,14 +28,17 @@ This changes a random link on the robot into a sensor if it already was not a se
 
 ### Change Size of Link
 Selects a random link and changes its size. Note: This may change the organization of the robot as certain links may no longer fit or joints are not connected
+
 ![image](https://i.imgur.com/DvQ2bB3.png)
 
 ### Move Links
 Moves the links on the robot
+
 ![image](https://i.imgur.com/1XNHqYq.png)
 
 ### Add or Remove Link
 Randomly removes a link from the robot (if there are more than 3 links) or adds a link to the robot
+
 ![image](![image](https://user-images.githubusercontent.com/15034808/221498424-fb1d00d1-be00-4bd6-9651-fa72435ac87f.png))
 
 ### Change a random sensor weight
