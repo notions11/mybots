@@ -39,7 +39,7 @@ Moves the links on the robot
 ### Add or Remove Link
 Randomly removes a link from the robot (if there are more than 3 links) or adds a link to the robot
 
-![image](![image](https://user-images.githubusercontent.com/15034808/221498424-fb1d00d1-be00-4bd6-9651-fa72435ac87f.png))
+![image](https://user-images.githubusercontent.com/15034808/221498424-fb1d00d1-be00-4bd6-9651-fa72435ac87f.png)
 
 ### Change a random sensor weight
 Same change as we have seen in the past where a weight is changed
