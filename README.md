@@ -2,7 +2,7 @@
 Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
 
 ## 3D creature morphologies
-For this assignment, I created randomly generated creatures with a random # of body components from 5-10. These body components each had randomly selected sizes from 0-1 (inclusive) for all three of its dimensions (x, y, and z). In addition, the joint axes were randomly chosen from a set of (0 0 1, 0 1 0, 1 0 0). As per the assignment instructions, links with sensors are colored green, and the ones without are colored blue. The decision as to whether a link was a sensor or not was up to a 50/50 coin flip. 
+For this assignment, I initially created randomly generated creatures with a random # of body components from 3-5. These body components had randomly selected sizes from 0-1 (inclusive) for all three dimensions (x, y, and z). In addition, the joint axes were randomly chosen from a set of (0 0 1, 0 1 0, 1 0 0). These creatures evolved in a population size of 100 across 100 generations. Possible evolutions are below. 
 
 ![image](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjYxNjIxOWIxYjg2YmFlNDM1ZDMyNmE3MzM4ODFkYzgyYTkzMGI3MCZjdD1n/xuqKCivjzUZhD8kNNt/giphy.gif)
 
@@ -37,12 +37,12 @@ Moves the links on the robot
 ![image](https://i.imgur.com/1XNHqYq.png)
 
 ### Add or Remove Link
-Randomly removes a link from the robot (if there are more than 3 links) or adds a link to the robot
+Randomly removes a link from the robot (if there are more than 3 links) or add a link to the robot
 
 ![image](https://user-images.githubusercontent.com/15034808/221498424-fb1d00d1-be00-4bd6-9651-fa72435ac87f.png)
 
 ### Change a random sensor weight
-Same change as we have seen in the past where a weight is changed
+Exact change as we have seen in the past where weight is changed
 
 ## YouTube
 This video can be found https://youtu.be/saK9kx8cg8k
