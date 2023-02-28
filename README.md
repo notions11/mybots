@@ -10,7 +10,7 @@ For this assignment, I initially created randomly generated creatures with a ran
 Just like Assignment 4, the fitness function in this 3d evolution model was for the robot to move along the negative x-axis -- away from the user (White block for reference and orientation)
 
 ## Fitness Curve
-![image](https://user-images.githubusercontent.com/15034808/221500968-42b2709e-7f15-4029-90cc-cc1a33446e1c.png)
+![image](https://user-images.githubusercontent.com/15034808/221745020-71a28f8a-7b89-466e-b2b3-3cb9a558fa4e.png)
 
 ## Process Diagrams
 ![image](https://i.imgur.com/s5yTNch.png)
