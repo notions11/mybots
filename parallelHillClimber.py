@@ -22,6 +22,7 @@ class PARALLEL_HILL_CLIMBER:
 
         for currentGeneration in range(constants.numberOfGenerations):
             self.Evolve_For_One_Generation()
+            print(currentGeneration)
         self.fitnessPlot.close()
 
     def Evolve_For_One_Generation(self):

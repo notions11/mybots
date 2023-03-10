@@ -13,9 +13,8 @@ class SOLUTION:
     def __init__(self, myID):
         self.weights = (numpy.random.rand(constants.numSensorNeurons, constants.numMotorNeurons)*2)-1
         self.myID = myID
-        random.seed(self.myID)
-        numpy.random.seed(self.myID)
         self.created = False
+        self.mutations = []
 
     def Evaluate(self, directOrGUI):
         self.Create_World()
@@ -854,7 +853,7 @@ class SOLUTION:
         # 4 - change random weight
 
         evolve_option = random.randint(0, 4)
-        print(evolve_option)
+        self.mutations.append(evolve_option)
         if evolve_option == 0:
             os.system("del body" + str(self.myID)+ ".urdf")
             self.Create_Mutated_Body(0)
