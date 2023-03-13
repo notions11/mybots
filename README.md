@@ -1,4 +1,7 @@
 # Final Project (Mix between science and engineer methodologies)
+## Credit
+Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
+
 ## Background/Hypothesis
 In this final project, I wanted to iterate off of Assignment 8 and find out whether we can get better evolution by investigating which types of evolution were most effective. As a refresher the following is how I set up my code and evolutions I created diagrams below:
 
@@ -33,9 +36,6 @@ Randomly removes a link from the robot (if there are more than 3 links) or add a
 
 ### Change a random sensor weight
 Exact change as we have seen in the past where weight is changed
-
-## Credit
-Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
 
 ## 3D creature morphologies
 For this assignment, I initially created randomly generated creatures with a random # of body components from 3-5. These body components had randomly selected sizes from 0-1 (inclusive) for all three dimensions (x, y, and z). In addition, the joint axes were randomly chosen from a set of (0 0 1, 0 1 0, 1 0 0). These creatures evolved in a population size of 100 across 100 generations. Possible evolutions are below. 
