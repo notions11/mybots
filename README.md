@@ -37,17 +37,33 @@ Randomly removes a link from the robot (if there are more than 3 links) or add a
 ### Change a random sensor weight
 Exact change as we have seen in the past where weight is changed
 
-## 3D creature morphologies
-For this assignment, I initially created randomly generated creatures with a random # of body components from 3-5. These body components had randomly selected sizes from 0-1 (inclusive) for all three dimensions (x, y, and z). In addition, the joint axes were randomly chosen from a set of (0 0 1, 0 1 0, 1 0 0). These creatures evolved in a population size of 100 across 100 generations. Possible evolutions are below. 
+## Experimental Design
+I first started by running 20 iterations of 10-population 500-generation tests. This yielded the following  
 
 ![image](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjYxNjIxOWIxYjg2YmFlNDM1ZDMyNmE3MzM4ODFkYzgyYTkzMGI3MCZjdD1n/xuqKCivjzUZhD8kNNt/giphy.gif)
 
+We can look at the fitness functions of the following: 
+![image](https://user-images.githubusercontent.com/15034808/224853826-788551fc-0e3e-4a7f-9918-de8a9fe5f118.png)
+
+This yielded a final average fitness of **-6.903325734489094**. This got me thinking: "What evolutions were the most prominent in order to get to the final evolution states per iteration? I kept track of the counts of evolutions per final robot and plotted them in this bar chart:
+
+![image](https://user-images.githubusercontent.com/15034808/224854122-7aaa2b00-79d3-4c17-8b2a-5caa13055f51.png)
+
+As we can see, based off our robot creation, maybe **every robot structure is functional** you just need to change sensors and weights in order to make it work. Thus, I wanted to set weights to the "random" evolution so that the changing of sensors and weights occurred more often. My hypothesis is that successful evolution will occur more often with evolution types that appear more often in successful generations
+
+![image](https://user-images.githubusercontent.com/15034808/224855109-72c95915-6e72-47f8-ae3d-28cef9af1174.png)
+
+| Evolution Type | Weighted Percentage |
+| ------------- | ------------- |
+| Change to a Sensor/Nonsensor  | 0.38  |
+| Change Size  | 0.11  |
+| Move  | 0.06  |
+| Add or Remove  | 0.10  |
+| Change Weights  | 0.36  |
+
+
 # Fitness Function
 Just like Assignment 4, the fitness function in this 3d evolution model was for the robot to move along the negative x-axis -- away from the user (White block for reference and orientation)
-
-## Fitness Curve
-![image](https://user-images.githubusercontent.com/15034808/221745020-71a28f8a-7b89-466e-b2b3-3cb9a558fa4e.png)
-
 
 
 ## YouTube
