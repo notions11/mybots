@@ -40,7 +40,7 @@ Randomly removes a link from the robot (if there are more than 3 links) or add a
 Exact change as we have seen in the past where weight is changed
 
 ## Experimental Design
-I first started by running 20 iterations of 10-population 500-generation tests
+I first started by running 20 iterations of 10-population 500-generation tests (20x10x500 = 100000 sims)
 
 We can look at the fitness functions of the following: 
 ![image](https://user-images.githubusercontent.com/15034808/224853826-788551fc-0e3e-4a7f-9918-de8a9fe5f118.png)
@@ -62,8 +62,19 @@ As we can see, based off our robot creation, maybe **every robot structure is fu
 | Change Weights  | 0.36  |
 
 
-# Fitness Function
-Just like Assignment 4, the fitness function in this 3d evolution model was for the robot to move along the negative x-axis -- away from the user (White block for reference and orientation)
+## Results
+Using the new weighted assignment of evolution I was able to generate the following fitness plots
+![image](https://user-images.githubusercontent.com/15034808/225074233-1a166fc3-064b-4d1a-9c46-2a5efd9961d6.png)
+Unlike in the control experiment I only was able to run 10 iterations of 10-population 500-generation tests (10x10x500 = 50000 sims) due to time constraints. The average final fitness of this new weighted method was only **-5.772688401317849** which is a whole point lower than when evolution choices were completely random. Looking into how the final products evolved it's very odd looking at the distribution
+
+![image](https://user-images.githubusercontent.com/15034808/225075685-edcad64f-84b9-478b-a9e1-8f8f59afe2d8.png)
+![image](https://user-images.githubusercontent.com/15034808/225075809-8dd04285-08ac-4633-ad2c-ad7275c315b8.png)
+
+First of all, the move and change size evolutions don't show up at all. In addition, despite changing to a nonsesor/sensor have the same probability of showing up as a weight change, from this experiement, weight changes happend almost 8 times as often. 
+
+## Conclusion/Future Work
+If I had more time, I would firstly run more iterations with weighted evolution. I think intuitively, my hypothesis made sense: "If certain evolutions were proven to be more effective in the random enviornment, if we were to focus on them then robots could evolve faster". However, this proved not to be the case. My guess as to why this happened is because the evolution methods that showed up less are still important. Maybe even though they were less frequent they had more of an impact on the robot whereas weight changing and sensor changing were rather small and thus only improved the robot by a few decimal fitness points.
+
 
 
 ## YouTube
