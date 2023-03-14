@@ -8,7 +8,7 @@ https://youtu.be/bT5L_RmkHKQ
 Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
 
 ## Background/Hypothesis
-In this final project, I wanted to iterate off of Assignment 8 and find out whether we can get better evolution by investigating which types of evolution were most effective. As a refresher the following is how I set up my code and evolutions I created diagrams below:
+In this final project, I wanted to iterate off of Assignment 8 and find out whether we can get better evolution by investigating which types of mutations were most effective. As a refresher the following is how I set up my code and mutations I created diagrams below:
 
 ## Initial Generation Diagrams
 ![image](https://i.imgur.com/s5yTNch.png)
@@ -18,7 +18,7 @@ In this final project, I wanted to iterate off of Assignment 8 and find out whet
 
 ![image](https://i.imgur.com/woX5Uhx.png)
 
-## Possible Evolutions
+## Possible Mutations
 ### Change One Link to Sensor/Not Sensor
 This changes a random link on the robot into a sensor if it already was not a sensor and vice versa.
 
@@ -48,11 +48,11 @@ I first started by running 20 iterations of 10-population 500-generation tests (
 We can look at the fitness functions of the following: 
 ![image](https://user-images.githubusercontent.com/15034808/224853826-788551fc-0e3e-4a7f-9918-de8a9fe5f118.png)
 
-This yielded a final average fitness of **-6.903325734489094**. This got me thinking: "What evolutions were the most prominent in order to get to the final evolution states per iteration? I kept track of the counts of evolutions per final robot and plotted them in this bar chart:
+This yielded a final average fitness of **-6.903325734489094**. This got me thinking: "What mutations were the most prominent in order to get to the final evolution states per iteration? I kept track of the counts of mutations per final robot and plotted them in this bar chart:
 
 ![image](https://user-images.githubusercontent.com/15034808/224854122-7aaa2b00-79d3-4c17-8b2a-5caa13055f51.png)
 
-As we can see, based off our robot creation, maybe **every robot structure is functional** you just need to change sensors and weights in order to make it work. Thus, I wanted to set weights to the "random" evolution so that the changing of sensors and weights occurred more often. My hypothesis is that successful evolution will occur more often with evolution types that appear more often in successful generations
+As we can see, based off our robot creation, maybe **every robot structure is functional** you just need to change sensors and weights in order to make it work. Thus, I wanted to set weights to the "random" mutation so that the changing of sensors and weights occurred more often. My hypothesis is that successful evolution will occur more often with mutation types that appear more often in successful generations
 
 ![image](https://user-images.githubusercontent.com/15034808/224855109-72c95915-6e72-47f8-ae3d-28cef9af1174.png)
 
@@ -68,7 +68,7 @@ As we can see, based off our robot creation, maybe **every robot structure is fu
 ## Results
 Using the new weighted assignment of evolution I was able to generate the following fitness plots
 ![image](https://user-images.githubusercontent.com/15034808/225074233-1a166fc3-064b-4d1a-9c46-2a5efd9961d6.png)
-Unlike in the control experiment I only was able to run 10 iterations of 10-population 500-generation tests (10x10x500 = 50000 sims) due to time constraints. The average final fitness of this new weighted method was only **-5.772688401317849** which is a whole point lower than when evolution choices were completely random. Looking into how the final products evolved it's very odd looking at the distribution
+Unlike in the control experiment I only was able to run 10 iterations of 10-population 500-generation tests (10x10x500 = 50000 sims) due to time constraints. The average final fitness of this new weighted method was only **-5.772688401317849** which is a whole point lower than when mutation choices were completely random. Looking into how the final products evolved it's very odd looking at the distribution
 
 ![image](https://user-images.githubusercontent.com/15034808/225075685-edcad64f-84b9-478b-a9e1-8f8f59afe2d8.png)
 ![image](https://user-images.githubusercontent.com/15034808/225075809-8dd04285-08ac-4633-ad2c-ad7275c315b8.png)
@@ -76,12 +76,7 @@ Unlike in the control experiment I only was able to run 10 iterations of 10-popu
 First of all, the move and change size evolutions don't show up at all. In addition, despite changing to a nonsesor/sensor have the same probability of showing up as a weight change, from this experiement, weight changes happend almost 8 times as often. 
 
 ## Conclusion/Future Work
-If I had more time, I would firstly run more iterations with weighted evolution. I think intuitively, my hypothesis made sense: "If certain evolutions were proven to be more effective in the random enviornment, if we were to focus on them then robots could evolve faster". However, this proved not to be the case. My guess as to why this happened is because the evolution methods that showed up less are still important. Maybe even though they were less frequent they had more of an impact on the robot whereas weight changing and sensor changing were rather small and thus only improved the robot by a few decimal fitness points.
-
-
-
-## YouTube
-This video can be found https://youtu.be/saK9kx8cg8k
+If I had more time, I would firstly run more iterations with weighted mutation. I think intuitively, my hypothesis made sense: "If certain evolutions were proven to be more effective in the random enviornment, if we were to focus on them then robots could evolve faster". However, this proved not to be the case. My guess as to why this happened is because the evolution methods that showed up less are still important. Maybe even though they were less frequent they had more of an impact on the robot whereas weight changing and sensor changing were rather small and thus only improved the robot by a few decimal fitness points.
 
 ## Run the Code
-After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify things such as the number of generations 
+After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify things such as the number of generations. In this Github repo there is also a weight-constants and several files named "train **#**" or "untrain **#**" The files together represent the pickling and seeds used to generate robots. To implement these you have to change the specific files in robot.py and choose the corresponding weights in solution.py
