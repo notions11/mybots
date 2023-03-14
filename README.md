@@ -1,7 +1,7 @@
 # Final Project (Mix between science and engineer methodologies)
 ![image](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjA1NGRlYWNiNDIyNDE4NjMxMzJhN2Y3M2QwZjNhNzg0NjJmNWQxMiZjdD1n/UrjNykSB77JEvbF1yp/giphy.gif)
 
-## 2-minute Youtube Video Summary
+## 2-Minute Youtube Video Summary
 https://youtu.be/bT5L_RmkHKQ
 
 ## Credit
