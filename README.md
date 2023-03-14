@@ -1,4 +1,6 @@
 # Final Project (Mix between science and engineer methodologies)
+![image](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjA1NGRlYWNiNDIyNDE4NjMxMzJhN2Y3M2QwZjNhNzg0NjJmNWQxMiZjdD1n/UrjNykSB77JEvbF1yp/giphy.gif)
+
 ## Credit
 Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
 
@@ -38,9 +40,7 @@ Randomly removes a link from the robot (if there are more than 3 links) or add a
 Exact change as we have seen in the past where weight is changed
 
 ## Experimental Design
-I first started by running 20 iterations of 10-population 500-generation tests. This yielded the following  
-
-![image](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjYxNjIxOWIxYjg2YmFlNDM1ZDMyNmE3MzM4ODFkYzgyYTkzMGI3MCZjdD1n/xuqKCivjzUZhD8kNNt/giphy.gif)
+I first started by running 20 iterations of 10-population 500-generation tests
 
 We can look at the fitness functions of the following: 
 ![image](https://user-images.githubusercontent.com/15034808/224853826-788551fc-0e3e-4a7f-9918-de8a9fe5f118.png)
