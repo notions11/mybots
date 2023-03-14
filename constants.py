@@ -13,8 +13,8 @@ amplitude = numpy.pi/2
 frequency = 5
 phaseOffset = 0
 
-numberOfGenerations = 500
-populationSize = 25
+numberOfGenerations = 0
+populationSize = 1
 
 numSensorNeurons = 13
 numMotorNeurons = 12

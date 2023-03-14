@@ -70,20 +70,23 @@ class PARALLEL_HILL_CLIMBER:
             if fittest_parent is None:
                 fittest_parent = self.parents[parent]
                 fittest_score = self.parents[parent].fitness
+                fittest_number = self.parents[parent].myID
             if self.parents[parent].fitness < fittest_score:
                 fittest_parent = self.parents[parent]
                 fittest_score = self.parents[parent].fitness
-                fittest_number = self.parents[parent].Get_ID()
+                fittest_number = self.parents[parent].myID
 
         print(fittest_parent.weights)
+        print(fittest_parent.mutations)
+        print(fittest_parent.fitness)
+        print(fittest_parent.myID)
         print(fittest_score)
         print(fittest_number)
-        fittest_parent.Start_Simulation('GUI')
+        os.system("start /B python3 simulate.py " + "GUI" + " " + str(fittest_parent.myID))
 
     def WriteBest(self):
         fittest_parent = None
         fittest_score = None
-        fittest_number = 0
         for parent in self.parents.keys():
             if fittest_parent is None:
                 fittest_parent = self.parents[parent]
@@ -91,7 +94,6 @@ class PARALLEL_HILL_CLIMBER:
             if self.parents[parent].fitness < fittest_score:
                 fittest_parent = self.parents[parent]
                 fittest_score = self.parents[parent].fitness
-                fittest_number = self.parents[parent].Get_ID()
 
         self.fitnessPlot.write(str(self.iteration) + ", " + str(fittest_score) + "\n")
 

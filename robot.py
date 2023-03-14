@@ -11,10 +11,10 @@ import os
 class ROBOT:
     def __init__(self, simulationID):
         self.motors = dict()
-        self.robotId = p.loadURDF("body" + str(simulationID) + ".urdf")
-        self.nn = NEURAL_NETWORK("brain" + str(simulationID) + ".nndf")
-        #self.robotId = p.loadURDF("run4body.urdf")
-        #self.nn = NEURAL_NETWORK("run4brain.nndf")
+        #self.robotId = p.loadURDF("body" + str(simulationID) + ".urdf")
+        #self.nn = NEURAL_NETWORK("brain" + str(simulationID) + ".nndf")
+        self.robotId = p.loadURDF("untrain15.urdf")
+        self.nn = NEURAL_NETWORK("untrain15.nndf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         #os.system("del brain" + str(simulationID) + ".nndf")
         self.simulationID = simulationID
@@ -40,12 +40,12 @@ class ROBOT:
                 desiredAngle = self.nn.Get_Value_Of(neuronName)*c.motorJointRange
                 self.motors[jointName].Set_Value(self.robotId, desiredAngle)
                 #print(neuronName, jointName, desiredAngle)
+
         #for i in self.motors:
         #    self.motors[i].Set_Value(self.robotId, desiredAngle)
 
     def Think(self):
         self.nn.Update()
-        #self.nn.Print()
 
     def Get_Fitness(self):
         stateOfLinkZero = p.getLinkState(self.robotId, 0)
