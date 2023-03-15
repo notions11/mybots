@@ -42,7 +42,7 @@ Randomly removes a link from the robot (if there are more than 3 links) or add a
 ![image](https://user-images.githubusercontent.com/15034808/221498424-fb1d00d1-be00-4bd6-9651-fa72435ac87f.png)
 
 ### Change a random sensor weight
-Exact change as we have seen in the past where weight is changed
+Exact change as we have seen in the past where the weight of a link is changed
 
 ## Experimental Design
 I first started by running 20 iterations of 10-population 500-generation tests (20x10x500 = 100000 sims)
