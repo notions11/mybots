@@ -90,4 +90,4 @@ In this Github repo there is also a weight_constants.py and several files in fol
 Fitness plot data for a given run of evolution is stored in **fitnessPlot.txt**
 
 ## Extras
-The extras
+The random folder has additional files that were used to create the graphs and videos in this project. They are unrelated to ludobots and pyrosim.
