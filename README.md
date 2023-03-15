@@ -10,7 +10,7 @@ https://youtu.be/bT5L_RmkHKQ
 Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
 
 ## Background/Hypothesis
-In this final project, I wanted to iterate off of Assignment 8 and find out whether we can get better evolution by investigating which types of mutations were most effective. As a refresher the following is how I set up my code and mutations I created the diagrams below:
+In this final project, I wanted to iterate off of Assignment 8. My goal was to find out whether we can get better evolution by investigating which types of mutations were most effective. My fitness function in my final project was still locomotion where the further the robot moves away from the camera (-x axis) the better. As a refresher, the methods in how I set up my code and mutations are shown in the created the diagrams below:
 
 ## Initial Generation Diagrams
 ![image](https://i.imgur.com/s5yTNch.png)
@@ -81,4 +81,6 @@ First of all, the move and change size evolutions don't show up at all. In addit
 If I had more time, I would firstly run more iterations with weighted mutation. I think intuitively, my hypothesis made sense: "If certain evolutions were proven to be more effective in the random environment if we were to focus on them then robots could evolve faster". However, this proved not to be the case. I guess this happened because the evolution methods that showed up less are still important. Maybe even though they were less frequent they had more of an impact on the robot whereas weight changing and sensor changing were rather small and thus only improved the robot by a few decimal fitness points.
 
 ## Run the Code + Saved Robots
-After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify the number of generations. In this Github repo there is also a weight_constants.py and several files named "train **#**" or "untrain **#**" These files represent the pickling and seeds used to generate robots. To implement these you have to change the specific files in robot.py and choose the corresponding weights in solution.py
+After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify the number of generations. 
+
+In this Github repo there is also a weight_constants.py and several files in folders **randomevolution** and **weightedevolution** named "train **#**" or "untrain **#**" These files represent the pickling and seeds used to generate robots. To implement these and see the robots generated, you have to change the specific files in robot.py and choose the corresponding weights in solution.py
