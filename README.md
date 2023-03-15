@@ -45,7 +45,7 @@ Randomly removes a link from the robot (if there are more than 3 links) or add a
 Exact change as we have seen in the past where the weight of a link is changed
 
 ## Experimental Design
-I first started by running 20 iterations of 10-population 500-generation tests (20x10x500 = 100000 sims)
+I first started by running 20 iterations of 10-population 500-generation tests (20x10x500 = 100,000 sims)
 
 We can look at the fitness functions of the following: 
 ![image](https://user-images.githubusercontent.com/15034808/224853826-788551fc-0e3e-4a7f-9918-de8a9fe5f118.png)
@@ -70,7 +70,7 @@ As we can see, based on our robot creation, maybe **every robot structure is fun
 ## Results
 Using the new weighted assignment of evolution I was able to generate the following fitness plots
 ![image](https://user-images.githubusercontent.com/15034808/225074233-1a166fc3-064b-4d1a-9c46-2a5efd9961d6.png)
-Unlike in the control experiment, I only was able to run 10 iterations of 10-population 500-generation tests (10x10x500 = 50000 sims) due to time constraints. The average final fitness of this new weighted method was only **-5.772688401317849** which is a whole point lower than when mutation choices were completely random. Looking into how the final products evolved it's very odd looking at the distribution
+Unlike in the control experiment, I only was able to run 10 iterations of 10-population 500-generation tests (10x10x500 = 50,000 sims) due to time constraints. The average final fitness of this new weighted method was only **-5.772688401317849** which is a whole point lower than when mutation choices were completely random. Looking into how the final products evolved it's very odd looking at the distribution
 
 ![image](https://user-images.githubusercontent.com/15034808/225075685-edcad64f-84b9-478b-a9e1-8f8f59afe2d8.png)
 ![image](https://user-images.githubusercontent.com/15034808/225075809-8dd04285-08ac-4633-ad2c-ad7275c315b8.png)
