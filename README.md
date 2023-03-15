@@ -1,4 +1,5 @@
 # Final Project (Mix between science and engineering methodologies)
+For my final project I primarily performed the engineering approach, as stated in the rubric. However, I had already collected some data about evolution types so I thought it would be cool and worthwhile to report these findings and make a science-format claim at the same time. 
 ![image](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjA1NGRlYWNiNDIyNDE4NjMxMzJhN2Y3M2QwZjNhNzg0NjJmNWQxMiZjdD1n/UrjNykSB77JEvbF1yp/giphy.gif)
 
 ## 2-Minute Youtube Video Summary
