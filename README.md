@@ -13,7 +13,7 @@ Most if not all source code is taken from the ludobots subreddit: https://www.re
 In this final project, I wanted to iterate off of Assignment 8. My goal was to find out whether we can get better evolution by investigating which types of mutations were most effective. My fitness function in my final project was still locomotion where the further the robot moves away from the camera (-x axis) the better. As a refresher, the methods in how I set up my code and mutations are shown in the created the diagrams below:
 
 ## Initial Generation Diagrams
-I thought it would be more clear to use blocks as my genotype diagram. Imagine the blocks in the following diagrams are the circles that are more familiar. 
+I thought it would be more clear to use blocks as my genotype diagram. Imagine the blocks in the following diagrams are the circles that are more common in a genotype chart as they more closely resemble our robots.
 
 ![image](https://i.imgur.com/s5yTNch.png)
 ![image](https://i.imgur.com/j1hBYcD.png)
