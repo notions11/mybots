@@ -85,7 +85,7 @@ If I had more time, I would firstly run more iterations with weighted mutation. 
 Another thing I would like to test is giving more weight to the less represented mutations. Maybe moving links and/or adding/removing links would actually be more beneficial to evolution. 
 
 ## Run the Code + Saved Robots
-After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify the number of generations. 
+After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify the number of generations or population. 
 
 In this Github repo there is also a weight_constants.py and several files in folders **randomevolution** and **weightedevolution** named "train **#**" or "untrain **#**" These files represent the pickling and seeds used to generate robots. To implement these and see the robots generated, you have to change the specific files in robot.py and choose the corresponding weights in solution.py.
 
