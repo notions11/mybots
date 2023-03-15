@@ -1,5 +1,5 @@
 # Final Project (Mix between science and engineering methodologies)
-For my final project I primarily performed the engineering approach, as stated in the rubric. However, I had already collected some data about evolution types so I thought it would be cool and worthwhile to report these findings and make a science-format claim at the same time. 
+To Sam/Donna/Any Other Grader: For my final project I primarily performed the engineering approach, as stated in the rubric. However, I had already collected some data about evolution types so I thought it would be cool to report these findings and make a science-format claim at the same time. I think the requirements of my assignment mainly appeal to the engineer rubric, but I tried my best to add some bits of the Scientist rubric in my work (hypothesis/results/future work). Just wanted to clarify as my claim may seem a bit week, but I thought it would still be worthwhile :)
 
 ![image](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjA1NGRlYWNiNDIyNDE4NjMxMzJhN2Y3M2QwZjNhNzg0NjJmNWQxMiZjdD1n/UrjNykSB77JEvbF1yp/giphy.gif)
 
