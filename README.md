@@ -1,5 +1,5 @@
 # Final Project (Mix between science and engineering methodologies)
-To Sam/Donna/Any Other Grader: For my final project I primarily performed the engineering approach, as stated in the rubric. However, I had already collected some data about evolution types so I thought it would be cool to report these findings and make a science-format claim at the same time. I think the requirements of my assignment mainly appeal to the engineer rubric, but I tried my best to add some bits of the Scientist rubric in my work (hypothesis/results/future work). Just wanted to clarify as my claim may seem a bit week, but I thought it would still be worthwhile :)
+To Sam/Donna/Any Other Grader: For my final project I primarily performed the engineering approach, as stated in the rubric. However, I had already collected some data about evolution types so I thought it would be cool to report these findings and make a science-format claim at the same time. I think the requirements of my assignment mainly appeal to the engineer rubric, but I tried my best to add some bits of the Scientist rubric in my work (hypothesis/results/future work). Just wanted to clarify as my claim may seem a bit week, but I thought it would still be worthwhile to give it a shot :)
 
 ![image](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjA1NGRlYWNiNDIyNDE4NjMxMzJhN2Y3M2QwZjNhNzg0NjJmNWQxMiZjdD1n/UrjNykSB77JEvbF1yp/giphy.gif)
 
@@ -75,10 +75,12 @@ Unlike in the control experiment, I only was able to run 10 iterations of 10-pop
 ![image](https://user-images.githubusercontent.com/15034808/225075685-edcad64f-84b9-478b-a9e1-8f8f59afe2d8.png)
 ![image](https://user-images.githubusercontent.com/15034808/225075809-8dd04285-08ac-4633-ad2c-ad7275c315b8.png)
 
-First of all, the move and change size evolutions don't show up at all. In addition, despite changing to a nonsensor/sensor having the same probability of showing up as a weight change, from this experiment, weight changes happened almost 8 times as often. 
+First of all, the move and change size evolutions don't show up at all. In addition, despite changing to a nonsensor/sensor having the same probability of showing up as a weight change, from this experiment, weight changes happened almost 8 times as often. I don't believe evolution "got stuck" either per se. It seems like the fitness plots have the same amount of progression as in random mutation, but the matter of the fact is that they simply didn't climb as high. 
 
 ## Conclusion/Future Work
 If I had more time, I would firstly run more iterations with weighted mutation. I think intuitively, my hypothesis made sense: "If certain evolutions were proven to be more effective in the random environment if we were to focus on them then robots could evolve faster". However, this proved not to be the case. I guess this happened because the evolution methods that showed up less are still important. Maybe even though they were less frequent they had more of an impact on the robot whereas weight changing and sensor changing were rather small and thus only improved the robot by a few decimal fitness points.
+
+Another thing I would like to test is giving more weight to the less represented mutations. Maybe moving links and/or adding/removing links would actually be more beneficial to evolution. 
 
 ## Run the Code + Saved Robots
 After downloading all the code, run the file named **main.py**. This will essentially run search.py and the rest of the code to run the simulation. You can also change the variables in constants.py to modify the number of generations. 
@@ -86,3 +88,6 @@ After downloading all the code, run the file named **main.py**. This will essent
 In this Github repo there is also a weight_constants.py and several files in folders **randomevolution** and **weightedevolution** named "train **#**" or "untrain **#**" These files represent the pickling and seeds used to generate robots. To implement these and see the robots generated, you have to change the specific files in robot.py and choose the corresponding weights in solution.py.
 
 Fitness plot data for a given run of evolution is stored in **fitnessPlot.txt**
+
+## Extras
+The extras
