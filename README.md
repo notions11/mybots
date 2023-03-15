@@ -7,7 +7,7 @@ To Sam/Donna/Any Other Grader: For my final project I primarily performed the en
 https://youtu.be/bT5L_RmkHKQ
 
 ## Credit
-Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/
+Most if not all source code is taken from the ludobots subreddit: https://www.reddit.com/r/ludobots/ . Ideas for this project come from Sam Kriegman's work and his Artificial Life class at Northwestern University.
 
 ## Background/Hypothesis
 In this final project, I wanted to iterate off of Assignment 8. My goal was to find out whether we can get better evolution by investigating which types of mutations were most effective. My fitness function in my final project was still locomotion where the further the robot moves away from the camera (-x axis) the better. As a refresher, the methods in how I set up my code and mutations are shown in the created the diagrams below:
